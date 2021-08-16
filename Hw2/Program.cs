@@ -16,7 +16,7 @@ namespace Hw2
         
         static void Main(string[] args)
         {
-            //PrintCentered("Get me $150 :)");
+            PrintCentered("Get me $150 :)");
             for (int i = 0; i < 3; i++)
             {
                 Employee emp = new Employee();
@@ -31,20 +31,20 @@ namespace Hw2
                  
                 emp.Height = Utils.InputValue<float>("Ваш рост (метры)",
                                                     "Рост не может быть больше 3х метров (вдруг Вы такой) и должен быть больше нуля ",
-                                                    x=>x>0&&x<3);
+                                                    x=>x>0&&x<=3);
                 
                 /*Возьмем классическую оценку школы от 1 до 5
                   Т.к. в задании сказано что должен быть целый тип, то берем минимально возможный Byte 
                   */
                 emp.RussianPoints = Utils.InputValue<byte>("Ваша оценка по русскому языку",
                                                         "Оценка должна быть от 1 до 5, только целая", 
-                                                        x=>x>0&&x<5);
+                                                        x=>x>0&&x<=5);
                 emp.HistoryPoints = Utils.InputValue<byte>("Ваша оценка по истории",
                                                         "Оценка должна быть от 1 до 5, только целая", 
-                                                        x=>x>0&&x<5);
+                                                        x=>x>0&&x<=5);
                 emp.MathPoints = Utils.InputValue<byte>("Ваша оценка по математике",
                                                         "Оценка должна быть от 1 до 5, только целая", 
-                                                        x=>x>0&&x<5);
+                                                        x=>x>0&&x<=5);
                                                     
                 //Будем вызывать разные методы вывода строк при вводе, чтобы удовлетворить всех клиентов )
                 if(i==0) 
@@ -59,7 +59,13 @@ namespace Hw2
                     emp.MathPoints, 
                     emp.AveragePoints);
                 if (i == 2)
-                    Console.WriteLine();
+                    Console.WriteLine("Имя "+ emp.Name+
+                                      " Возраст "+emp.Age+
+                                      " Рост "+emp.Height+
+                                      " Рус яз "+ emp.RussianPoints+
+                                      " История "+emp.HistoryPoints+
+                                      " Метематика"+emp.MathPoints+
+                                      " Средняя "+emp.AveragePoints);
                 
                 Employees.Add(emp);
             }
