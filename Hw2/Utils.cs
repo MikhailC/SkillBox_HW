@@ -40,11 +40,7 @@ namespace Hw2
                 }
 
                 
-            } ;
-
-            return answer;
-
-
+            } 
         }
     }
 }
