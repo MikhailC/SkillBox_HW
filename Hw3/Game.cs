@@ -5,25 +5,25 @@ using System.Runtime.CompilerServices;
 
 namespace Hw3
 {
-    public static class Game
+    public  class Game
     {
 
-        public static int MinGameNumber { get; set; }
-        public static int MaxGameNumber { get; set; }
-        public static int MinUserTry { get; set; }
-        public static int MaxUserTry { get; set; }
-        public static int GameNumber { get; private set; } 
-        public static List<IUser> Gamers { get; } = new List<IUser>();
-        public static IUser Winner { get; private set; } = null;
+        public int MinGameNumber { get; set; }
+        public int MaxGameNumber { get; set; }
+        public int MinUserTry { get; set; }
+        public int MaxUserTry { get; set; }
+        public int GameNumber { get; private set; } 
+        public List<IUser> Gamers { get; } = new List<IUser>();
+        public IUser Winner { get; private set; } = null;
         
-        public static bool Standoff { get; private set; }=false;
+        public bool Standoff { get; private set; }=false;
 
-        public static int StepNumber { get; private set; } 
+        public int StepNumber { get; private set; } 
 
-        private static int MaxTry => Math.Min(GameNumber, MaxUserTry);
+        public int MaxTry => Math.Min(GameNumber-MinGameNumber, MaxUserTry);
 
-        private static int MinTry => MinUserTry; //Пока не придумал
-        public static void Run()
+        public int MinTry => Math.Min(GameNumber-MinGameNumber, MinUserTry); 
+        public void Run()
         {
             GameNumber = Randomizer.GetRandom(MinGameNumber,MaxGameNumber);
             Winner = null;
@@ -35,7 +35,7 @@ namespace Hw3
                 IUser user = Gamers[StepNumber++ % Gamers.Count];
        
                 Console.WriteLine($"Ход {StepNumber} для {user.Name} Введите число от {MinTry} до {MaxTry}");
-                int userTry = user.DoMove(GameNumber, MinTry, MaxTry);
+                int userTry = user.DoMove(Instance);
                 GameNumber -= userTry;
                 Console.WriteLine($"GameNumber = {GameNumber}");
         
@@ -45,8 +45,25 @@ namespace Hw3
                 break;
             }
 
-  
-         
+            if (Winner == null) Standoff = true;
+
+        }
+
+        //Singleton with lazy init
+        private static Game _instance=null;
+        
+        public static Game Instance
+        {
+            get
+            {
+                if (_instance == null) _instance = new Game();
+                return _instance;
+            }
+        }
+
+        private Game()
+        {
+            
         }
         
         public static void PrintInstruction()

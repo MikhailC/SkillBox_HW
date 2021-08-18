@@ -9,7 +9,7 @@ namespace Hw3
         static void Main(string[] args)
         {
             Game.PrintInstruction();
-            
+
             int usersNumber = Utils.InputValue<int>("Может быть только целое число", x => x>0,
                 "Сколько пользователей будет играть в игру?");
             
@@ -17,7 +17,7 @@ namespace Hw3
             {
                 Console.WriteLine($"Введите имя пользователя {i+1}");
                 IUser user = new Human() {Name = Console.ReadLine()};
-                Game.Gamers.Add(user);
+                Game.Instance.Gamers.Add(user);
             }
 
             if (usersNumber == 1)
@@ -28,38 +28,39 @@ namespace Hw3
                 IUser computer = cumputerLevel switch
                 {
                     1 => new EasyComputer(),
-                    2 => new HardComputer()
+                    2 => new HardComputer(),
+                    _=> throw new Exception("Мы вводим только правильные переменные, эта фраза на всякий случай")
                 };
 
                 int computerOreder = Utils.InputValue<int>("Можно выбрать 1 или 2", x => x == 1 || x == 2,
                     "Компьютер ходит первым (1) или вторым (2)");
                 
-                Game.Gamers.Insert(computerOreder-1, computer);
+                Game.Instance.Gamers.Insert(computerOreder-1, computer);
                 
                
             }
             
-            Game.MinGameNumber = Utils.InputValue<int>("Минимальное число должно быть больше нуля", x => x > 0, "Введите минимальное число gameNumber");
-            Game.MaxGameNumber = Utils.InputValue<int>($"Число должно быть больше чем {Game.MinGameNumber}", x => x > Game.MinGameNumber, "Введите максимальнео числое gameNumber");
+            Game.Instance.MinGameNumber = Utils.InputValue<int>("Минимальное число должно быть больше нуля", x => x > 0, "Введите минимальное число gameNumber");
+            Game.Instance.MaxGameNumber = Utils.InputValue<int>($"Число должно быть больше чем {Game.Instance.MinGameNumber}", x => x > Game.Instance.MinGameNumber, "Введите максимальнео числое gameNumber");
 
-            Game.MinUserTry = Utils.InputValue<int>("Должно быть больше нуля",
-                x => x > 0 && x<Game.MaxGameNumber, "Введите минимальное число userTry");
-            Game.MaxUserTry = Utils.InputValue<int>($"Должно быть больше {Game.MinUserTry}", x => x > Game.MinUserTry&& x<Game.MaxGameNumber, "Введите максимальнео число userTry");
+            Game.Instance.MinUserTry = Utils.InputValue<int>("Должно быть больше нуля",
+                x => x > 0 && x<Game.Instance.MaxGameNumber, "Введите минимальное число userTry");
+            Game.Instance.MaxUserTry = Utils.InputValue<int>($"Должно быть больше {Game.Instance.MinUserTry}", x => x > Game.Instance.MinUserTry&& x<Game.Instance.MaxGameNumber, "Введите максимальнео число userTry");
 
             do
             {
                 //   int GameNumber = new Random((int) DateTime.Now.Ticks & 0x0000FFFF).Next(minGameNumber-1, maxGameNumber) + 1;
 
-                Game.Run();
+                Game.Instance.Run();
 
-                if (Game.Standoff)
+                if (Game.Instance.Standoff)
                 {
                     Console.WriteLine("Ничья");
 
                 }
                 else
                 {
-                    Console.WriteLine($"Победитель {Game.Winner}");
+                    Console.WriteLine($"Победитель {Game.Instance.Winner}");
                 }
 
     

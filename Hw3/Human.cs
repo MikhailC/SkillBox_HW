@@ -8,15 +8,10 @@ namespace Hw3
  
         public string Name { get; set; }
 
-        public int DoMove(int gameNumber, int minNumber, int maxNumber)=> 
-                Utils.InputValue<int>($"Необходимо ввести число от {minNumber} до {maxNumber}",
-                    x => x >= minNumber && x <= maxNumber);
-                
+        public int DoMove(Game game)=> 
+            Utils.InputValue<int>($"Необходимо ввести число от {game.MinTry} до {game.MaxTry}",
+                x => x >= game.MinTry && x <= game.MaxTry);
 
-             
-                    
-             
-   
 
         public override string ToString()=> $"Игрок {Name}";
         }
