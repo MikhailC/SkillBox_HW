@@ -7,6 +7,42 @@ namespace Hw4_3Tests
     public class UnitTest1
     {
         [Fact]
+        public void Test_MatrixMultiple_MatrixARowCountIfNotEqulMatrixBRowCountThrowsException()
+        {
+         
+            
+            int[,] a=new int[2,3];
+            int[,] b=new int[4,2];
+
+            Assert.Throws<ArgumentException>(()=>Utils.MatrixMultiple(a, b));
+        }
+
+        [Fact]
+        public void Test_MatrixMultiplication()
+        {
+            int[,] a = new int[2, 3] {{1, 2, 3}, 
+                                      {4, 5, 6}};
+
+            int[,] b = new int[3, 4]
+            {
+                {7, 8, 9, 10},
+                {11, 12, 13, 14},
+                {15, 16, 17, 18}
+            };
+
+            int[,] c = new int[2, 4]
+            {
+                {74, 80, 86, 92},
+                {173, 188, 203, 218}
+            };
+            
+           
+
+            Assert.Equal(Utils.MatrixMultiple(a,b),c);
+
+        }
+        
+        [Fact]
         public void Test_EveryCellInMatrixShouldBeMultipled()
         {
             int[,] src = new int[3, 3] {{1, 1, 1}, {1, 1, 1}, {1, 1, 1}};

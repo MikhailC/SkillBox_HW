@@ -4,8 +4,20 @@
     &lt;TestId&gt;xUnit::3B0358FA-DA51-4D19-8B6C-3D50A0320F88::.NETCoreApp,Version=v3.1::Hw4_3Tests.UnitTest1.Test1&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f1ab5fcb_002Db942_002D497f_002Dbdb6_002D34302c02c7be/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="UnitTest1" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e4c872c6_002D3d6a_002D4f06_002D90fe_002De4be89901977/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Test_MatrixMultiplication" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::3B0358FA-DA51-4D19-8B6C-3D50A0320F88::.NETCoreApp,Version=v3.1::Hw4_3Tests.UnitTest1.Test_MatrixMultiplication&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::3B0358FA-DA51-4D19-8B6C-3D50A0320F88::.NETCoreApp,Version=v3.1::Hw4_3Tests.UnitTest1.Test_MatrixMultiple_MatrixARowCountIfNotEqulMatrixBRowCountThrowsException&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f1ab5fcb_002Db942_002D497f_002Dbdb6_002D34302c02c7be/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="UnitTest1" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;xUnit::3B0358FA-DA51-4D19-8B6C-3D50A0320F88::.NETCoreApp,Version=v3.1::Hw4_3Tests.UnitTest1&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f4d6853c_002D2d0e_002D40cc_002D9b2c_002Db45dc7a5fac5/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Test_MatrixMultiple_MatrixARowCountIfNotEqulMatrixBRowCountThrowsException" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::3B0358FA-DA51-4D19-8B6C-3D50A0320F88::.NETCoreApp,Version=v3.1::Hw4_3Tests.UnitTest1.Test_MatrixMultiple_MatrixARowCountIfNotEqulMatrixBRowCountThrowsException&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::3B0358FA-DA51-4D19-8B6C-3D50A0320F88::.NETCoreApp,Version=v3.1::Hw4_3Tests.UnitTest1.Test_MatrixMultiplication&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

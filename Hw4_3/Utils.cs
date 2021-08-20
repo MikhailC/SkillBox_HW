@@ -15,6 +15,36 @@ namespace Hw4_3
             }
         }
 
+        public static int[,] MatrixMultiple(int[,] a, int[,] b)
+        {
+        
+            if (a.GetLength(1) != b.GetLength(0))
+            {
+                throw new ArgumentException(
+                    $"Две матрицы можно перемножить если количество столбцов первой матрицы равно количеству строк второй матрицы.");
+            }
+            
+            int m = a.GetLength(0);
+            int n = a.GetLength(1);
+            int k = b.GetLength(1);
+            
+            int[,] c = new int[m, k];
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < k; j++)
+                {
+                    c[i, j] = 0;
+                    for (int x = 0; x < n; x++)
+                    {
+                        c[i,j] += a[i, x] * b[x, j];
+                    }
+                 
+                }
+            }
+
+            return c;
+        }
+        
         public static  int[,] MatrixAdd(int[,] a, int[,] b) => MatrixAddSub(a, b, 1);
 
         public static int[,] MatrixSub(int[,] a, int[,] b) => MatrixAddSub(a, b, -1);
