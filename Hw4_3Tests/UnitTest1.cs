@@ -48,7 +48,19 @@ namespace Hw4_3Tests
             int[,] src = new int[3, 3] {{1, 1, 1}, {1, 1, 1}, {1, 1, 1}};
             int[,] tgt = new int[3, 3] {{2, 2, 2}, {2, 2, 2}, {2, 2, 2}};
             
-            Utils.MultiplyMatrixByNumber(src,2);
+            int[,] result = Utils.MultiplyMatrixByNumber(src,2);
+
+
+            Assert.Equal(result, tgt);
+        }
+        
+        [Fact]
+        public void Test_SourceMatrixDoesntChangingAfterMultipleByNum()
+        {
+            int[,] src = new int[3, 3] {{1, 1, 1}, {1, 1, 1}, {1, 1, 1}};
+            int[,] tgt = new int[3, 3] {{1, 1, 1}, {1, 1, 1}, {1, 1, 1}};
+            
+            int[,] result = Utils.MultiplyMatrixByNumber(src,2);
 
 
             Assert.Equal(src, tgt);
