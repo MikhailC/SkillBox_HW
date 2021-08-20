@@ -12,6 +12,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hw4_3Tests", "Hw4_3Tests\Hw
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hw4_2", "Hw4_2\Hw4_2.csproj", "{B623C17B-B7EE-4334-ABFB-F4150652E655}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hw5", "Hw5\Hw5.csproj", "{779845EC-4A3E-43AF-B63A-3B6B70986944}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hw5Test", "Hw5Test\Hw5Test.csproj", "{0274B5E1-39BD-4E6D-8437-6B36DAFBD08B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +46,13 @@ Global
 		{B623C17B-B7EE-4334-ABFB-F4150652E655}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B623C17B-B7EE-4334-ABFB-F4150652E655}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B623C17B-B7EE-4334-ABFB-F4150652E655}.Release|Any CPU.Build.0 = Release|Any CPU
+		{779845EC-4A3E-43AF-B63A-3B6B70986944}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{779845EC-4A3E-43AF-B63A-3B6B70986944}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{779845EC-4A3E-43AF-B63A-3B6B70986944}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{779845EC-4A3E-43AF-B63A-3B6B70986944}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0274B5E1-39BD-4E6D-8437-6B36DAFBD08B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0274B5E1-39BD-4E6D-8437-6B36DAFBD08B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0274B5E1-39BD-4E6D-8437-6B36DAFBD08B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0274B5E1-39BD-4E6D-8437-6B36DAFBD08B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
