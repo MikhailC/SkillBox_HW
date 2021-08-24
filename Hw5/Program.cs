@@ -1,5 +1,8 @@
-﻿using System;
+﻿#nullable enable
+using System;
+using System.Collections.Immutable;
 using System.Linq;
+using System.Text;
 using System.Xml;
 
 //Задания 5-2, 5-3
@@ -14,17 +17,36 @@ namespace Hw5
     public class Program
     {
         
+        public static string GetMinimalString(string instring)
+        {
+            var t = instring.Split(" ", StringSplitOptions.RemoveEmptyEntries)
+                .ToList<string>()
+                .OrderBy(a => a.Length)
+                .FirstOrDefault();
+
+            return string.IsNullOrEmpty(t) ? "" : t;
+        }
+
+        public static string[] GetAllMaxStrings(string instring)
+        {
+            var t = instring.Split(" ", StringSplitOptions.RemoveEmptyEntries)
+                .ToList<string>().Distinct().OrderBy(a => a.Length).Reverse();
+             return t.Where(a => t.First().Length == a.Length).ToArray();
+                 
+        }
         static void Main(string[] args)
         {
+            string testString = "Скажика дядя ведь не даром Москва спаленная пожаром французам отдана";
+            Console.WriteLine(GetMinimalString(testString));
 
             //Первый метод возвращает минимальную строку, знаки припинания не фильтруются - убрал
-            Console.WriteLine(new MinMaxString("Скажика дядя ведь не даром Москва спаленная пожаром французам отдана")
-                .GetFirstMinString());
+            Console.WriteLine(GetMinimalString(testString));
 
             //Второй метод возвращает массив длинных строк
             var ff =
-                new MinMaxString("Скажика дядя ведь не даром Москва спаленная пожаром французам отдана").GetMaxWords();
+                GetAllMaxStrings(testString);
 
+            Console.WriteLine("Самые длинные строки");
             foreach (var v in ff)
             {
                 Console.WriteLine(v);
@@ -88,19 +110,19 @@ namespace Hw5
         {
             if (s.Length == 0) throw new Exception("Нулевая строка");
             int sp = 0;
-            string result = s[sp].ToString();
+            StringBuilder sb = new StringBuilder(s[sp].ToString());
             for (int i = 1; i <= s.Length; i++)
             {
 
                // int sp = i - 1;
                 if (s[sp] == s[i - 1]) continue;
                 sp = i - 1;
-                result += s[sp].ToString();
+                sb.Append(s[sp].ToString());
 
 
             }
 
-            return result;
+            return sb.ToString();
         }
 
 

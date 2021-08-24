@@ -3,6 +3,7 @@ using System.Runtime.InteropServices;
 using Xunit;
 using Hw5 ;
 using Microsoft.VisualStudio.TestPlatform.TestHost;
+using Program = Hw5.Program;
 
 namespace Hw5Test
 {
@@ -31,6 +32,24 @@ namespace Hw5Test
         void Test_ShouldCheckStripTextFunc()
         {
             Assert.Equal(Hw5.Program.StripLine("Скккажжжииииккккка    дяядя ввввведддььь не ДДаром"),"Скажика дядя ведь не Даром");
+        }
+
+        [Theory]
+        [InlineData("","")]
+        [InlineData("rer","rer")]
+        [InlineData("ghghghgh rer ter pert fortt","rer")]
+        void Test_ReturnShortStringFromText(string inStr, string outStr)
+        {
+            Assert.Equal(Program.GetMinimalString(inStr), outStr);
+        }
+        
+        [Theory]
+        
+        [InlineData("длина1 длина23 длина234 234длина длина32 32длина", new string[]{ "234длина","длина234"})]
+       [InlineData("", new string[0])]
+        void Test_MethodShouldReturnMaxWordsList(string inStr,  string[] outStr)
+        {
+            Assert.Equal(Program.GetAllMaxStrings(inStr), outStr);
         }
     }
 }
