@@ -115,7 +115,7 @@ namespace Hw6
 
             FileInfo compressedInfo = new FileInfo(fl.FullName + ".gz");
             Console.WriteLine($"Compressed file out.txt.gz size is {compressedInfo.Length}");
-            
+            Console.WriteLine($"Regular file out.txt size is {fl.Length}");
 
             return 0;
         }
