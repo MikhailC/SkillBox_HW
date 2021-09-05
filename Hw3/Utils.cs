@@ -19,20 +19,14 @@ namespace Hw3
             while(true)
             {
                 if (caption.Length!=0) Console.WriteLine(caption);
-               // if (defaultValue != null) Console.Write($"[{defaultValue}]:");
+              
                 string str = Console.ReadLine();
 
-                // if (str?.Length == 0)
-                // {
-                //     answer = defaultValue;
-                // }
-                // else
-                // {
-
+         
                     try
                     {
                         answer = (T) Convert.ChangeType(str, typeof(T));
-                        if (test(answer))
+                        if (test is null || test(answer))
                         {
                             return answer;
                         }

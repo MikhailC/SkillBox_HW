@@ -76,7 +76,7 @@ namespace Hw6
                     }
                     fs.Write($" {i}");
                     //Console.WriteLine(i%(inNum/100));
-                    if(i%(inNum/10)==0) Console.WriteLine($"Progress:{i/(inNum/100y)}% at {DateTime.Now}");
+                    if(i%(inNum/10)==0) Console.WriteLine($"Progress:{i/(inNum/100)}% at {DateTime.Now}");
                 }
                
             }

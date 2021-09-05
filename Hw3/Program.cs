@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Net.Mime;
 using Microsoft.VisualBasic;
 
 namespace Hw3
 {
     class Program
     {
+        
         static void Main(string[] args)
         {
             Game.PrintInstruction();
