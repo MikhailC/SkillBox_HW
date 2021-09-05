@@ -21,8 +21,21 @@ namespace Hw7
             {Command.Save, DiarySaveToDefinedFile},
             {Command.SaveAs, DiarySaveAs},
             {Command.Load, DiaryLoadFromFile},
-            {Command.LoadByDate, DiaryLoadByPeriod}
+            {Command.LoadByDate, DiaryLoadByPeriod},
+            {Command.SortByField, DiarySortByField}
         };
+
+        private static void DiarySortByField()
+        {
+            Console.WriteLine("Укажите название поля, по которому будем сортировать (введите английский идентификатор с учетом регистра):\n" +
+                              "Subject - Заголовок\n" +
+                              "Description - Описание\n" +
+                              "CreationDate - Дата создания \n" +
+                              "RemindMe - текстовой представление даты напоминания (см. сначала в список)" +
+                              "Phone - телефон");
+            string fieldName = Console.ReadLine();
+            MyDiary.Sort((x,y)=>(((IComparable)x[fieldName]).CompareTo(y[fieldName])));
+        }
 
         public static string FileName = "Diary.txt";
 

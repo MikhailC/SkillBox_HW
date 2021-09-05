@@ -47,9 +47,9 @@ namespace Hw7
         /// Загружает записи из файла по диапазону дат
         /// </summary>
         LoadByDate,
-        
+        SortByField,
         Exit
-
+        
     }
 
 }

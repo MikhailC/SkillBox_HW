@@ -1,6 +1,7 @@
 ﻿
 
 using System;
+using Hw3;
 
 namespace Hw7
 {
@@ -28,11 +29,9 @@ namespace Hw7
         
         public static Command GetCommand()
         {
-            Command? result = null;
+      
             
-            do
-            {
-                Console.WriteLine("Нажмите соответствующую клавишу для выбора или Esc для выхода");
+                Console.WriteLine("Введите соответствующий пункт меню и нажмите Enter");
                 Console.WriteLine("1. Показать заметки");
                 Console.WriteLine("2. Вставить заметку");
                 Console.WriteLine("3. Редактировать заметку");
@@ -46,26 +45,12 @@ namespace Hw7
                 Console.WriteLine("8. Загрузить");
                 Console.WriteLine("9. Загрузить по диапазону дат");
                 Console.WriteLine("------------------------");
-                var answer = Console.ReadKey();
+                Console.WriteLine("10. Упорядочить по полю");
+                Console.WriteLine("11. Выход");
+
+               return (Command) Utils.InputValue<int>("Укажите значение пункта", x => x > 0 && x < 12)-1;
                 
-                if (answer.Key == ConsoleKey.Escape) 
-                    return Command.Exit;
-                try
-                {
-                    if (Enum.IsDefined(typeof(Command), int.Parse(answer.KeyChar.ToString())))
-                        result = (Command) int.Parse(answer.KeyChar.ToString()) - 1;
-                }
-                catch
-                {
-                    Console.WriteLine("Неверное значение. Выбрите значение из меню. Любая кнопка для продолжения...");
-                    Console.ReadKey();
-                }
-
-
-            } while (result is null);
-            //Command.ListNotes
-            Console.WriteLine(result);
-            return result.Value;
+         
             
         }
 
